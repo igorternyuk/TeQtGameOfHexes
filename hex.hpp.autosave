@@ -30,11 +30,11 @@ public:
     Type getType() const;
     void setType(const Type &type);
     QPointF getInitialPos() const;
+    void conquerNeighbours();
 
 signals:
 
 protected:
-
     void mouseReleaseEvent(QGraphicsSceneMouseEvent *event) override;
 
 private:
@@ -44,6 +44,7 @@ private:
     QList<QGraphicsTextItem*> mSideAttackLabels;
     QList<QGraphicsLineItem*> mCollisionDetectors;
     QList<Hex*> detectNeighbours();
+
     inline void setAttackValue(int side, int value)
     {
         mAttackValues[side] = value;

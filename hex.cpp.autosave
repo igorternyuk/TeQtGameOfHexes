@@ -104,9 +104,14 @@ void Hex::setType(const Type &type)
     mType = type;
 }
 
-QList<Hex *> Hex::detectNeighbours()
+QList<Hex*> Hex::detectNeighbours()
 {
     auto scene = this->scene();
+}
+
+void Hex::conquerNeighbours()
+{
+    
 }
 
 void Hex::generateRandomSideAttackValues()

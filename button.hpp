@@ -1,11 +1,21 @@
-#ifndef BUTTON_H
-#define BUTTON_H
+#pragma once
 
+#include <QObject>
+#include <QGraphicsRectItem>
 
-class Button : public QGraphicsRectItem
+class Button : public QObject, public QGraphicsRectItem
 {
+    Q_OBJECT
 public:
-    Button();
-};
+    explicit Button(const QPointF &pos, const QString &caption,
+                    QGraphicsItem *parent = nullptr);
+    virtual ~Button();
+signals:
+    void leftClick();
+protected:
+    void mouseReleaseEvent(QGraphicsSceneMouseEvent *event) override;
+    void hoverEnterEvent(QGraphicsSceneHoverEvent *event) override;
+    void hoverLeaveEvent(QGraphicsSceneHoverEvent *event) override;
 
-#endif // BUTTON_H
+
+};

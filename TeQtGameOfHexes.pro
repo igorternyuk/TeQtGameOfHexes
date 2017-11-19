@@ -17,12 +17,14 @@ SOURCES += main.cpp \
     game.cpp \
     hex.cpp \
     random.cpp \
-    hexboard.cpp
+    hexboard.cpp \
+    button.cpp
 
 HEADERS  += \
     game.hpp \
     hex.hpp \
     random.h \
-    hexboard.hpp
+    hexboard.hpp \
+    button.hpp
 
 FORMS    +=
