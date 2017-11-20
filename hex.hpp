@@ -1,6 +1,7 @@
 #pragma once
 
 #include <QList>
+#include <QMap>
 #include <QGraphicsPolygonItem>
 #include <QGraphicsTextItem>
 #include <QGraphicsLineItem>
@@ -26,16 +27,12 @@ public:
     }
     inline void resetPos() { this->setPos(mInitialPos); }
     void generateRandomSideAttackValues();
+    void resetSideAttackValues();
     void setSideAttackLabelsVisible(bool isVisible = true);
     Type getType() const;
     void setType(const Type &type);
     QPointF getInitialPos() const;
-
-signals:
-
-protected:
-
-    void mouseReleaseEvent(QGraphicsSceneMouseEvent *event) override;
+    unsigned int conquerNeighbours();
 
 private:
     QPointF mInitialPos;
@@ -43,10 +40,10 @@ private:
     int mAttackValues[NUM_SIDES] {0};
     QList<QGraphicsTextItem*> mSideAttackLabels;
     QList<QGraphicsLineItem*> mCollisionDetectors;
-    QList<Hex*> detectNeighbours();
+    QMap<int, Hex*> detectNeighbours();
+    void updateColor();
     inline void setAttackValue(int side, int value)
     {
         mAttackValues[side] = value;
     }
-
 };

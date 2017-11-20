@@ -8,6 +8,13 @@ class HexBoard: public QObject
 {
     Q_OBJECT
 public:
+    enum
+    {
+        BOARD_SIZE_X = 9,
+        BOARD_SIZE_Y = 7,
+        GAP_X = 2,
+        GAP_Y = 1
+    };
     explicit HexBoard(QObject *parent = nullptr);
     //~HexBoard();
     void placeHexes();

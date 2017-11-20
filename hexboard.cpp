@@ -4,19 +4,19 @@
 
 HexBoard::HexBoard(QObject *parent):
     QObject(parent)
-{
-
-}
+{}
 
 void HexBoard::placeHexes()
 {
-    createGrid(205, 100, Hex::Type::Neutral, 9, 7, 2, 1);
+    createGrid(205, 100, Hex::Type::Neutral, BOARD_SIZE_X, BOARD_SIZE_Y,
+               GAP_X, GAP_Y);
 }
 
 void HexBoard::removeHex(Hex *hex)
-{
+{    
     mHexes.removeAll(hex);
     delete hex;
+    hex = nullptr;
 }
 
 void HexBoard::createHexColumn(const QPointF &pos, Hex::Type type,

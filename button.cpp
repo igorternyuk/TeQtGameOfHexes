@@ -27,7 +27,6 @@ Button::~Button()
 
 void Button::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
 {
-    qDebug() << "Button left click";
     if(event->button() == Qt::MouseButton::LeftButton)
         emit leftClick();
     QGraphicsRectItem::mouseReleaseEvent(event);
@@ -35,7 +34,6 @@ void Button::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
 
 void Button::hoverEnterEvent(QGraphicsSceneHoverEvent *event)
 {
-    //qDebug() << "hoverEnterEvent";
     this->setBrush(QBrush(Qt::cyan));
     this->update();
     QGraphicsRectItem::hoverEnterEvent(event);
@@ -44,7 +42,6 @@ void Button::hoverEnterEvent(QGraphicsSceneHoverEvent *event)
 
 void Button::hoverLeaveEvent(QGraphicsSceneHoverEvent *event)
 {
-   // qDebug() << "hoverLeaveEvent";
     this->setBrush(QBrush(Qt::darkCyan));
     this->update();
     QGraphicsRectItem::hoverLeaveEvent(event);
